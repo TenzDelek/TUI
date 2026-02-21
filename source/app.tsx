@@ -8,6 +8,7 @@ import StaticExample from './components/Static-Example.js';
 import ArrayExample from './components/Array.js';
 import GradientExample from './components/Gradient.js';
 import TextInput from './components/cursor.js';
+import Loader from './components/Loader.js';
 
 type Props = {
 	name: string | undefined;
@@ -59,7 +60,7 @@ export default function App({ name = 'Stranger' }: Props) {
 			<FlexDemo />
 			<ClassicBorder />
 			<ArrayExample />
-
+			<Loader />
 			<StaticExample />
 			<GradientExample />
 			<TextInput />
