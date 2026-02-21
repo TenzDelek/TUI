@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Newline, Text, useInput } from 'ink';
+import Truncate from './components/Truncate.js';
+import Guideline from './components/Guideline.js';
+import FlexDemo from './components/Flex-Demo.js';
+import ClassicBorder from './components/ClassicBorder.js';
+import StaticExample from './components/Static-Example.js';
 
 type Props = {
 	name: string | undefined;
@@ -28,26 +33,8 @@ export default function App({ name = 'Stranger' }: Props) {
 	})
 	return (
 		<>
-			<Box flexDirection="row">
-				<Text>
-					<Text>
-						Press <Text italic color="green">w</Text> to increment
-					</Text>
-					<Newline />
-					<Text>
-						Press <Text underline color="red">s</Text> to decrement
-					</Text>
-					<Newline />
-					<Text>
-						Press <Text strikethrough color="yellow">r</Text> to reset
-					</Text>
-					<Newline />
-					<Text>
-						Press <Text bold color="magenta">q</Text> to quit
-					</Text>
-				</Text>
-			</Box>
-			<Box flexDirection="column" margin={1} borderStyle="round" borderColor="gray">
+			<Guideline />
+			<Box gap={1} flexDirection="column" margin={1} borderStyle="round" borderColor="gray">
 				<Text>
 					Hello, <Text color="green">{name}</Text>
 				</Text>
@@ -64,6 +51,10 @@ export default function App({ name = 'Stranger' }: Props) {
 					</Text>
 				</Box>
 			</Box>
+			<Truncate />
+			<FlexDemo />
+			<ClassicBorder />
+			<StaticExample />
 		</>
 	);
 }
