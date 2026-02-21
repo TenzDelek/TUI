@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Box, Newline, Text, useInput } from 'ink';
+import { Box, Newline, Text, useInput, useApp } from 'ink';
 import Truncate from './components/Truncate.js';
 import Guideline from './components/Guideline.js';
 import FlexDemo from './components/Flex-Demo.js';
 import ClassicBorder from './components/ClassicBorder.js';
 import StaticExample from './components/Static-Example.js';
+import ArrayExample from './components/Array.js';
+import GradientExample from './components/Gradient.js';
+import TextInput from './components/cursor.js';
 
 type Props = {
 	name: string | undefined;
@@ -12,10 +15,11 @@ type Props = {
 
 export default function App({ name = 'Stranger' }: Props) {
 	const [Counter, setCounter] = useState(0);
+	const { exit } = useApp();
 
 	useInput((input, key) => {
 		if (key.ctrl && input == 'c') {
-			process.exit(0);
+			exit();
 		}
 		else if (input == "w") {
 			setCounter(Counter + 1);
@@ -27,7 +31,7 @@ export default function App({ name = 'Stranger' }: Props) {
 			setCounter(0);
 		}
 		else if (input == "q") {
-			process.exit(0);
+			exit();
 		}
 
 	})
@@ -54,7 +58,11 @@ export default function App({ name = 'Stranger' }: Props) {
 			<Truncate />
 			<FlexDemo />
 			<ClassicBorder />
+			<ArrayExample />
+
 			<StaticExample />
+			<GradientExample />
+			<TextInput />
 		</>
 	);
 }
